@@ -1,0 +1,20 @@
+// php爬蟲
+// 設定連線
+$ch = curl_init();
+
+// 設定連線的位置以及回傳參數
+curl_setopt($ch, CURLOPT_URL, "url");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+--> CURLOPT_RETURNTRANSFER : 取回回傳資料
+--> CURLOPT_HEADER : 取回傳送的紀錄
+
+
+// 執行和取回
+$output = curl_exec($ch);
+
+// 關閉資源
+curl_close($ch);
+
+// 顯示
+echo htmlspecialchars($output);
