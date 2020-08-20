@@ -1,0 +1,14 @@
+// 依照EasyMVC的步驟
+
+// core/controller : 之後增加的controller的功能都放在這
+
+// .htaccess : 介入路由解析
+
+// 找得到就由Apache處理
+// -f : 檔案, -d : 資料夾
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+// 找不到我們處理
+// ^起點 $終點 .*所有字串, 找不到的話全部變成index.php?url=$1
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
