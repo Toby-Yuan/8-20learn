@@ -6,7 +6,9 @@ class BlogController extends Controller{
     }
 
     function list($name){
-        echo "List : $name";
+        $user = $this->model("User");
+        $user->name = $name;
+        $this->view("Blog/list", $user);
     }
 }
 ?>
